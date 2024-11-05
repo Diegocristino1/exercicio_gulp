@@ -18,7 +18,7 @@ function comprimeJavaScript() {
     .pipe(gulp.dest("./build/scripts"))
 }
 
-function compilaSaa() {
+function compilaSass() {
     return gulp.src("./source/styles/main.scss")
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -31,5 +31,5 @@ function compilaSaa() {
 exports.default = function() {
     gulp.watch("./source/styles/*.scss", { ignoreInitial: false }, gulp.series(compilaSaa));
     gulp.watch("./source/scripts/*.js", { ignoreInitial: false }, gulp.series(comprimeJavaScript));
-    gulp.watch("./source/images/*.", { ignoreInitial: false }, gulp.series(comprimeImagens));
+    gulp.watch("./source/images/*", { ignoreInitial: false }, gulp.series(comprimeImagens));
 }
